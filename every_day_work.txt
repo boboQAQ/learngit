@@ -4,14 +4,19 @@
 git init把一个目录变成Git可管理的仓库
 git add添加文件到版本库/暂存区，
 git status查看当前路径状态，可以知道有没有文件被修改，
-git diff查看修改内容，
-git commit -m提交，并且-m是本次提交说明，
+git diff查看修改内容,git diff HEAD -- <FILE>活git diff <file>等格式，
+git commit -m "***" 提交，并且-m后的引号内容是本次提交说明，
 git log 查看最近提交日志
 git reset --hard 【commit-id】回溯版本，通过HEAD指针指向当前版本，但是不知道 --hard的作用。
 git reflog记录每次命令方便回溯版本
+对文件的的修改和删除
 git checkout -- <file>丢弃工作区的修改，回到该文件上一次git commit或则git add状态，侧重点在工作区的修改而不是暂存区。
-git reset HEAD <file>将add到暂存区的文件退回到工作区，然后再通过checkout丢弃修改即可。
-如果修改已经提交到版本库，只能考虑版本回退
+git reset HEAD <file>将add/rm到暂存区的文件退回到工作区，然后再通过checkout丢弃修改即可。
+个人认知，git checkout 用以将工作区修改丢弃，而git reset HEAD <FILE>则是先将add到暂存区的退回工作区，再丢弃修改 如果修改已经提交到版本库，只能考虑版本回退
+删除文件可以先外部删除，可以通过git status查看到状态，然后使用git rm <file>删除并提交本次修改
+
+
+远程仓库功能：使用的GitHub上手练习，创建ssh-key后连接上了自己的GitHub账号
 
 取得进步————
 不足部分及改善办法————
