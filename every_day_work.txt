@@ -1,4 +1,4 @@
-当前计划————了解ci框架，熟悉Git操作，了解ython的基本语法。
+当前计划————了解ci框架，熟悉Git操作，了解ython的基本语法————了解数据库Redis。mongo的一些接口。
 完成情况————Git是一个免费的分布式版本控制器,控制的是修改，而不是文件。
 了解并实际重复操作了以下命令。
 git init把一个目录变成Git可管理的仓库
@@ -16,7 +16,10 @@ git reset HEAD <file>将add/rm到暂存区的文件退回到工作区，然后�
 删除文件可以先外部删除，可以通过git status查看到状态，然后使用git rm <file>删除并提交本次修改
 
 
-远程仓库功能：使用的GitHub上手练习，创建ssh-key后连接上了自己的GitHub账号
+远程仓库功能：使用的GitHub上手练习，创建ssh-key后连接上了自己的GitHub账号——————成功将本机git仓库关联到GitHub并将master分支所有内容推送去。
+关联一个远程库：git remote add origin <address>
+关联后，使用git push -u origin master第一次推送master分支所有内容，此后只需git push origin master
+clone远程仓库到本地git clone <address>
 
 取得进步————
 不足部分及改善办法————
