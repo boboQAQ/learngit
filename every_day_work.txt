@@ -23,9 +23,16 @@ clone远程仓库到本地git clone <address>   成功从远程仓库clone到本
 
 
 分支创建与合并：
-结果————成功用git实现了分支的创建与合并
-git checkout -b <branch-name>创建并切换到这个分支，git ckeckout <branch-name>切换分支。
+结果————成功用git实现了分支的创建与合并。理解：分支上的修改提交不会影响其他分支，只有在合并之后，分支上的修改才会体现在master上，在合并之后可以删除之前创建的分支。
+git checkout -b <branch-name>创建并切换到这个分支，git checkout <branch-name>切换分支，git branch <branch-name>创建一个分支。
 git branch 查看当前分支状况，*标记的分支为当前分支
+git merge <branch-name>将<branch-name>分支合并到当前分支
+git branch -d <branch-name> 合并之后可以用此命令删除分支
+
+分支冲突：不能快速合并的话，需要自己手动合并之后，add，commit，可以使用git log 带参数查看分支合并情况
+git log --graph --pretty=oneline --abbrev-commit
+
+
 
 取得进步————
 不足部分及改善办法————
