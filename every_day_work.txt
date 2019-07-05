@@ -28,9 +28,19 @@ git checkout -b <branch-name>创建并切换到这个分支，git checkout <bran
 git branch 查看当前分支状况，*标记的分支为当前分支
 git merge <branch-name>将<branch-name>分支合并到当前分支
 git branch -d <branch-name> 合并之后可以用此命令删除分支
+通常，合并分支时，如果可能，Git会用Fast forward模式，但这种模式下，删除分支后，会丢掉分支信息。
+
+如果要强制禁用Fast forward模式，Git就会在merge时生成一个新的commit，这样，从分支历史上就可以看出分支信息。
+使用 no-ff可以保留历史合并信息
+
 
 分支冲突：不能快速合并的话，需要自己手动合并之后，add，commit，可以使用git log 带参数查看分支合并情况
 git log --graph --pretty=oneline --abbrev-commit
+
+BUG分支：可以先使用git stash保存工作区，再创建分支去修改bug，修改结束后合并到master后删除bug分支再回到之前的分支，
+		可以使用git stash apply恢复，但是未删除stash内容。
+		也可以使用git stash pop恢复的同时删除stash。
+
 
 
 
