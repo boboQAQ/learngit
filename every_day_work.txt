@@ -70,6 +70,14 @@ git tag 查看标签信息。
 默认标签是打在最新提交的commit上的。有时候，如果忘了打标签，比如，现在已经是周五了，但应该在周一打的标签没有打，怎么办？
 方法是找到历史提交的commit id，然后打上就可以了：git tag v0.9 f52c633
 可以用git show <tagname>查看标签信息
+命令git tag -a <tagname> -m "blablabla..."可以指定标签信息
+命令git push origin <tagname>可以推送一个本地标签；
+
+命令git push origin --tags可以推送全部未推送过的本地标签；
+
+命令git tag -d <tagname>可以删除一个本地标签；
+
+命令git push origin :refs/tags/<tagname>可以删除一个远程标签。
 
 
 
