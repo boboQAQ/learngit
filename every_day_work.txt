@@ -20,6 +20,8 @@ git reset HEAD <file>将add/rm到暂存区的文件退回到工作区，然后�
 关联一个远程库：git remote add origin <address>
 关联后，使用git push -u origin master第一次推送master分支所有内容，此后只需git push origin master.
 clone远程仓库到本地git clone <address>   成功从远程仓库clone到本地库
+查看远程库的信息，用git remote
+或者，用git remote -v显示更详细的信息
 
 
 分支创建与合并：
@@ -40,7 +42,27 @@ git log --graph --pretty=oneline --abbrev-commit
 BUG分支：可以先使用git stash保存工作区，再创建分支去修改bug，修改结束后合并到master后删除bug分支再回到之前的分支，
 		可以使用git stash apply恢复，但是未删除stash内容。
 		也可以使用git stash pop恢复的同时删除stash。
+如果要丢弃一个没有被合并过的分支，可以通过git branch -D <name>强行删除。
 
+
+
+多人协作的工作模式通常是这样：
+
+首先，可以试图用git push origin <branch-name>推送自己的修改；
+
+如果推送失败，则因为远程分支比你的本地更新，需要先用git pull试图合并；
+
+如果合并有冲突，则解决冲突，并在本地提交；
+
+没有冲突或者解决掉冲突后，再用git push origin <branch-name>推送就能成功！
+
+如果git pull提示no tracking information，则说明本地分支和远程分支的链接关系没有创建，用命令git branch --set-upstream-to <branch-name> origin/<branch-name>。
+
+这就是多人协作的工作模式，一旦熟悉了，就非常简单。
+
+rebase操作可以把本地未push的分叉提交历史整理成直线；
+
+rebase的目的是使得我们在查看历史提交的变化时更容易，因为分叉的提交需要三方对比。
 
 
 
